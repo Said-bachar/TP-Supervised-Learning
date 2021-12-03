@@ -174,4 +174,23 @@ for i in [-1,1]:
     print("n_jobs : {}, Temps total : {}".format(i,time_stop-time_start))
 '''
 
+# Matrice de confusion
+
+''' 
+clasifier = neighbors.KNeighborsClassifier(3)
+
+begin = time()
+clasifier.fit(xtrain,ytrain)
+predicted = clasifier.predict(X=xtest)
+end = time()
+
+print("score: ", clasifier.score(xtest, ytest))
+
+total_time = end - begin
+print("time: ", total_time)
+
+print(confusion_matrix(ytest,predicted))
+'''
+
+
 
