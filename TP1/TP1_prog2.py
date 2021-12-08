@@ -16,11 +16,11 @@ indices = np.random.randint(70000, size=5000)
 data = mnist.data[indices]
 target = mnist.target[indices]
 
-# -------------------- Tests pour le TP (avec train à 80) ---------------------
+# -------------------- training with  80%  ---------------------
 
 xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8)
 
-# ----------------- Test avec K = 10 -----------------
+# ----------------- Test with K = 10 -----------------
 
 
 
@@ -36,7 +36,7 @@ print("Prédiction : {}, Valeur : {}, Efficacité : {}".format(prediction[4], yt
 
 
 
-# ----------------- Boucle de variation de k -----------------
+# ----------------- loop to variate values of k -----------------
 
 '''
 
@@ -52,7 +52,7 @@ for i in range (2,16):
 
 '''
 
-# ----------------- Test avec n_jobs à 1 puis -1 -----------------
+# -----------------  n_jobs to 1 then -1 -----------------
 
 '''
 for i in [-1,1]:
@@ -67,7 +67,7 @@ for i in [-1,1]:
     print("n_jobs : {}, Temps total : {}".format(i,time_stop-time_start))
 '''
 
-# ----------------- Boucle de variation de k avec KFold -----------------
+# ----------------- k with KFold -----------------
 
 '''
 
@@ -92,38 +92,6 @@ for train_index, test_index in kf.split(data):
 
 '''
 
-# ----------------- Tests pour le rapport (avec train commun 70%) -----------------
-
-xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.7)
-
-# Variation de K
-
-''' 
-score=[]
-execution_time=[]
-
-values_of_k = range (2,16)
-
-for k in values_of_k:
-
-    clasifier = neighbors.KNeighborsClassifier(k)
-
-    begin = time()
-    clasifier.fit(xtrain,ytrain)
-    predicted = clasifier.predict(X=xtest)
-    end = time()
-    total_time = end - begin
-
-    score.append(clasifier.score(xtest, ytest))
-    execution_time.append(total_time)
-    print("score: ", clasifier.score(xtest, ytest))
-    print("time: ", total_time)
-
-plt.plot(values_of_k,execution_time)
-plt.show()
-plt.plot(values_of_k,score)
-plt.show()
-'''
 
 
 # Variation train / test
