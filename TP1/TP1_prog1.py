@@ -24,3 +24,6 @@ print("----------------------Visualization :-------------------------------")
 images = mnist.data.reshape((-1, 28, 28))
 plt.imshow(images[0],cmap=plt.cm.gray_r,interpolation="nearest")
 plt.show()
+
+
+
